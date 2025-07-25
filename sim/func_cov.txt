@@ -1,0 +1,120 @@
+COVERGROUP COVERAGE:
+------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric      Goal/ Status                      
+                                                                At Least                             
+------------------------------------------------------------------------------------------------------
+ TYPE /memory_top_pkg/memory_cov/memory_cov_group      100.0%        100 Covered                   
+      Coverpoint memory_cov_group::RST_COVPOINT          100.0%        100 Covered                   
+      Coverpoint memory_cov_group::EN_COVPOINT           100.0%        100 Covered                   
+      Coverpoint memory_cov_group::WR_COVPOINT           100.0%        100 Covered                   
+      Coverpoint memory_cov_group::ADDR_COVPOINT         100.0%        100 Covered                   
+      Coverpoint memory_cov_group::DATA_COVPOINT         100.0%        100 Covered                   
+      Cross memory_cov_group::CROSS_ADDR_DATA            100.0%        100 Covered                   
+   Covergroup instance \/memory_top_pkg::memory_cov::memory_cov_group  
+                                                       100.0%        100 Covered                   
+      Coverpoint RST_COVPOINT                            100.0%        100 Covered                   
+          covered/total bins:                                 6          6                           
+          missing/total bins:                                 0          6                           
+          bin rst_0                                           3          1 Covered                   
+          bin rst_1                                           3          1 Covered                   
+          bin rst_t['b1=>'b1]                              4943          1 Covered                   
+          bin rst_t['b1=>'b0]                                 1          1 Covered                   
+          bin rst_t['b0=>'b1]                                 1          1 Covered                   
+          bin rst_t['b0=>'b0]                                 2          1 Covered                   
+      Coverpoint EN_COVPOINT                             100.0%        100 Covered                   
+          covered/total bins:                                 6          6                           
+          missing/total bins:                                 0          6                           
+          bin en_0                                           28          1 Covered                   
+          bin en_1                                           28          1 Covered                   
+          bin en_t['b1=>'b1]                               4919          1 Covered                   
+          bin en_t['b1=>'b0]                                  1          1 Covered                   
+          bin en_t['b0=>'b1]                                  1          1 Covered                   
+          bin en_t['b0=>'b0]                                 26          1 Covered                   
+      Coverpoint WR_COVPOINT                             100.0%        100 Covered                   
+          covered/total bins:                                 6          6                           
+          missing/total bins:                                 0          6                           
+          bin wr_0                                          838          1 Covered                   
+          bin wr_1                                          838          1 Covered                   
+          bin wr_t['b1=>'b1]                               4021          1 Covered                   
+          bin wr_t['b1=>'b0]                                 89          1 Covered                   
+          bin wr_t['b0=>'b1]                                 89          1 Covered                   
+          bin wr_t['b0=>'b0]                                748          1 Covered                   
+      Coverpoint ADDR_COVPOINT                           100.0%        100 Covered                   
+          covered/total bins:                                16         16                           
+          missing/total bins:                                 0         16                           
+          bin addr['b0000]                                  293          1 Covered                   
+          bin addr['b0001]                                  290          1 Covered                   
+          bin addr['b0010]                                  261          1 Covered                   
+          bin addr['b0011]                                  308          1 Covered                   
+          bin addr['b0100]                                  297          1 Covered                   
+          bin addr['b0101]                                  543          1 Covered                   
+          bin addr['b0110]                                  239          1 Covered                   
+          bin addr['b0111]                                  317          1 Covered                   
+          bin addr['b1000]                                  281          1 Covered                   
+          bin addr['b1001]                                  311          1 Covered                   
+          bin addr['b1010]                                  349          1 Covered                   
+          bin addr['b1011]                                  358          1 Covered                   
+          bin addr['b1100]                                  267          1 Covered                   
+          bin addr['b1101]                                  274          1 Covered                   
+          bin addr['b1110]                                  282          1 Covered                   
+          bin addr['b1111]                                  278          1 Covered                   
+      Coverpoint DATA_COVPOINT                           100.0%        100 Covered                   
+          covered/total bins:                                 3          3                           
+          missing/total bins:                                 0          3                           
+          bin data_min                                      999          1 Covered                   
+          bin data_rang                                    2948          1 Covered                   
+          bin data_max                                     1001          1 Covered                   
+      Cross CROSS_ADDR_DATA                              100.0%        100 Covered                   
+          covered/total bins:                                48         48                           
+          missing/total bins:                                 0         48                           
+          bin <data_min,addr['b0000]>                        62          1 Covered                   
+          bin <data_min,addr['b0001]>                        61          1 Covered                   
+          bin <data_min,addr['b0010]>                        64          1 Covered                   
+          bin <data_min,addr['b0011]>                        50          1 Covered                   
+          bin <data_min,addr['b0100]>                        46          1 Covered                   
+          bin <data_min,addr['b0101]>                       114          1 Covered                   
+          bin <data_min,addr['b0110]>                        57          1 Covered                   
+          bin <data_min,addr['b0111]>                        64          1 Covered                   
+          bin <data_min,addr['b1000]>                        52          1 Covered                   
+          bin <data_min,addr['b1001]>                        61          1 Covered                   
+          bin <data_min,addr['b1010]>                        72          1 Covered                   
+          bin <data_min,addr['b1011]>                        79          1 Covered                   
+          bin <data_min,addr['b1100]>                        55          1 Covered                   
+          bin <data_min,addr['b1101]>                        55          1 Covered                   
+          bin <data_min,addr['b1110]>                        47          1 Covered                   
+          bin <data_min,addr['b1111]>                        60          1 Covered                   
+          bin <data_rang,addr['b0000]>                      172          1 Covered                   
+          bin <data_rang,addr['b0001]>                      175          1 Covered                   
+          bin <data_rang,addr['b0010]>                      138          1 Covered                   
+          bin <data_rang,addr['b0011]>                      196          1 Covered                   
+          bin <data_rang,addr['b0100]>                      193          1 Covered                   
+          bin <data_rang,addr['b0101]>                      323          1 Covered                   
+          bin <data_rang,addr['b0110]>                      142          1 Covered                   
+          bin <data_rang,addr['b0111]>                      187          1 Covered                   
+          bin <data_rang,addr['b1000]>                      161          1 Covered                   
+          bin <data_rang,addr['b1001]>                      197          1 Covered                   
+          bin <data_rang,addr['b1010]>                      200          1 Covered                   
+          bin <data_rang,addr['b1011]>                      212          1 Covered                   
+          bin <data_rang,addr['b1100]>                      154          1 Covered                   
+          bin <data_rang,addr['b1101]>                      163          1 Covered                   
+          bin <data_rang,addr['b1110]>                      171          1 Covered                   
+          bin <data_rang,addr['b1111]>                      164          1 Covered                   
+          bin <data_max,addr['b0000]>                        59          1 Covered                   
+          bin <data_max,addr['b0001]>                        54          1 Covered                   
+          bin <data_max,addr['b0010]>                        59          1 Covered                   
+          bin <data_max,addr['b0011]>                        62          1 Covered                   
+          bin <data_max,addr['b0100]>                        58          1 Covered                   
+          bin <data_max,addr['b0101]>                       106          1 Covered                   
+          bin <data_max,addr['b0110]>                        40          1 Covered                   
+          bin <data_max,addr['b0111]>                        66          1 Covered                   
+          bin <data_max,addr['b1000]>                        68          1 Covered                   
+          bin <data_max,addr['b1001]>                        53          1 Covered                   
+          bin <data_max,addr['b1010]>                        77          1 Covered                   
+          bin <data_max,addr['b1011]>                        67          1 Covered                   
+          bin <data_max,addr['b1100]>                        58          1 Covered                   
+          bin <data_max,addr['b1101]>                        56          1 Covered                   
+          bin <data_max,addr['b1110]>                        64          1 Covered                   
+          bin <data_max,addr['b1111]>                        54          1 Covered                   
+  
+TOTAL COVERGROUP COVERAGE: 100.0%  COVERGROUP TYPES: 1
+

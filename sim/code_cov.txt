@@ -1,0 +1,314 @@
+Coverage Report by file with details
+
+File: ../rtl/memory.sv
+Statement Coverage:
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Stmts                       13        13         0     100.0
+
+================================Statement Details================================
+
+Statement Coverage for file ../rtl/memory.sv --
+
+    1                                              module memory #(parameter DATA_WIDTH = 32, DEPTH = 16, ADDR_WIDTH = 4) ( 
+    2                                                input                        memory_clk,       // memory clock
+    3                                                input                        memory_rst,       // asynchronous active low reset
+    4                                                input                        memory_en,        // enable signal
+    5                                                input                        memory_wr,        // write and read enable
+    6                                                input      [ADDR_WIDTH-1:0]  memory_addr,      // memory address
+    7                                                input      [DATA_WIDTH-1:0]  memory_data_in,   // input data to be written 
+    8                                                output reg                   memory_vld_out,   // valid output for read mode
+    9                                                output reg[DATA_WIDTH-1:0]   memory_data_out   // output data for read mode
+    10                                               );
+    11                                             
+    12                                               reg [DATA_WIDTH-1:0] memory_reg [DEPTH];
+    13                                             
+    14            1                       4940       always @(posedge memory_clk, negedge memory_rst) begin
+    15                                                 if (!memory_rst) begin  //reset_case
+    16            1                          2           for (int i = 0; i < ADDR_WIDTH; i++) begin
+    16            2                          8     
+    17            1                          8             memory_reg[i]   <= 0;
+    18                                                   end
+    19            1                          2           memory_vld_out    <= 'b0;
+    20            1                          2           memory_data_out   <= 'b0;
+    21                                                 end 
+    22                                                 else if(memory_en) begin
+    23                                                   if (memory_wr) begin //write_case
+    24            1                       4097             memory_reg[memory_addr] <= memory_data_in;
+    25            1                       4097             memory_vld_out          <= 'b0;
+    26            1                       4097             memory_data_out         <= 'b0;
+    27                                                   end
+    28                                                   else begin //read_case
+    29            1                        820             memory_vld_out   <= 'b1;
+    30            1                        820             memory_data_out  <= memory_reg[memory_addr];
+    31                                                   end
+    32                                                 end
+    33                                                 else begin //bypass_case
+    34            1                         21           memory_vld_out     <= 'b0;
+    35            1                         21           memory_data_out    <= memory_data_in;
+    36                                                 end
+    37                                               end
+    38                                             endmodule :memory
+
+Branch Coverage:
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Branches                     5         5         0     100.0
+
+================================Branch Details================================
+
+Branch Coverage for file ../rtl/memory.sv --
+
+------------------------------------IF Branch------------------------------------
+    15                                    4940     Count coming in to IF
+    15            1                          2         if (!memory_rst) begin  //reset_case
+    22            1                       4917         else if(memory_en) begin
+    33            1                         21         else begin //bypass_case
+Branch totals: 3 hits of 3 branches = 100.0%
+
+------------------------------------IF Branch------------------------------------
+    23                                    4917     Count coming in to IF
+    23            1                       4097           if (memory_wr) begin //write_case
+    28            1                        820           else begin //read_case
+Branch totals: 2 hits of 2 branches = 100.0%
+
+
+Condition Coverage:
+    Enabled Coverage        Active   Covered    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    FEC Condition Terms          0         0         0     100.0
+Expression Coverage:
+    Enabled Coverage        Active   Covered    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    FEC Expression Terms         0         0         0     100.0
+FSM Coverage:
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    States                       0         0         0     100.0
+    Transitions                  0         0         0     100.0
+Toggle Coverage:
+    Enabled Coverage        Active      Hits    Misses % Covered
+    ----------------        ------      ----    ------ ---------
+    Toggle Bins                146       146         0     100.0
+
+================================Toggle Details================================
+
+Toggle Coverage for File ../rtl/memory.sv --
+
+       Line                                   Node      1H->0L      0L->1H       0L->Z       Z->0L       1H->Z       Z->H1     ExtMode  "Coverage"
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+========
+(n*) - Number was not used in coverage calculations performed by extended toggle algorithms.
+
+Extended Toggle Coverage Calculation Criteria:
+-----------------------------------------------
+	ExtMode 1: 0L->1H & 1H->0L & any one 'Z' transition (to/from 'Z').
+	ExtMode 2: 0L->1H & 1H->0L & one transition to 'Z' & one transition from 'Z'.
+	ExtMode 3: 0L->1H & 1H->0L & all 'Z' transitions.
+========
+
+Total Node Count     =         73 
+Toggled Node Count   =         73 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =      100.0% (146 of 146 bins)
+
+COVERGROUP COVERAGE:
+------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric      Goal/ Status                      
+                                                                At Least                             
+------------------------------------------------------------------------------------------------------
+ TYPE /memory_top_pkg/memory_cov/memory_cov_group      100.0%        100 Covered                   
+      Coverpoint memory_cov_group::RST_COVPOINT          100.0%        100 Covered                   
+      Coverpoint memory_cov_group::EN_COVPOINT           100.0%        100 Covered                   
+      Coverpoint memory_cov_group::WR_COVPOINT           100.0%        100 Covered                   
+      Coverpoint memory_cov_group::ADDR_COVPOINT         100.0%        100 Covered                   
+      Coverpoint memory_cov_group::DATA_COVPOINT         100.0%        100 Covered                   
+      Cross memory_cov_group::CROSS_ADDR_DATA            100.0%        100 Covered                   
+   Covergroup instance \/memory_top_pkg::memory_cov::memory_cov_group  
+                                                       100.0%        100 Covered                   
+      Coverpoint RST_COVPOINT                            100.0%        100 Covered                   
+          covered/total bins:                                 6          6                           
+          missing/total bins:                                 0          6                           
+          bin rst_0                                           3          1 Covered                   
+          bin rst_1                                           3          1 Covered                   
+          bin rst_t['b1=>'b1]                              4943          1 Covered                   
+          bin rst_t['b1=>'b0]                                 1          1 Covered                   
+          bin rst_t['b0=>'b1]                                 1          1 Covered                   
+          bin rst_t['b0=>'b0]                                 2          1 Covered                   
+      Coverpoint EN_COVPOINT                             100.0%        100 Covered                   
+          covered/total bins:                                 6          6                           
+          missing/total bins:                                 0          6                           
+          bin en_0                                           28          1 Covered                   
+          bin en_1                                           28          1 Covered                   
+          bin en_t['b1=>'b1]                               4919          1 Covered                   
+          bin en_t['b1=>'b0]                                  1          1 Covered                   
+          bin en_t['b0=>'b1]                                  1          1 Covered                   
+          bin en_t['b0=>'b0]                                 26          1 Covered                   
+      Coverpoint WR_COVPOINT                             100.0%        100 Covered                   
+          covered/total bins:                                 6          6                           
+          missing/total bins:                                 0          6                           
+          bin wr_0                                          838          1 Covered                   
+          bin wr_1                                          838          1 Covered                   
+          bin wr_t['b1=>'b1]                               4021          1 Covered                   
+          bin wr_t['b1=>'b0]                                 89          1 Covered                   
+          bin wr_t['b0=>'b1]                                 89          1 Covered                   
+          bin wr_t['b0=>'b0]                                748          1 Covered                   
+      Coverpoint ADDR_COVPOINT                           100.0%        100 Covered                   
+          covered/total bins:                                16         16                           
+          missing/total bins:                                 0         16                           
+          bin addr['b0000]                                  293          1 Covered                   
+          bin addr['b0001]                                  290          1 Covered                   
+          bin addr['b0010]                                  261          1 Covered                   
+          bin addr['b0011]                                  308          1 Covered                   
+          bin addr['b0100]                                  297          1 Covered                   
+          bin addr['b0101]                                  543          1 Covered                   
+          bin addr['b0110]                                  239          1 Covered                   
+          bin addr['b0111]                                  317          1 Covered                   
+          bin addr['b1000]                                  281          1 Covered                   
+          bin addr['b1001]                                  311          1 Covered                   
+          bin addr['b1010]                                  349          1 Covered                   
+          bin addr['b1011]                                  358          1 Covered                   
+          bin addr['b1100]                                  267          1 Covered                   
+          bin addr['b1101]                                  274          1 Covered                   
+          bin addr['b1110]                                  282          1 Covered                   
+          bin addr['b1111]                                  278          1 Covered                   
+      Coverpoint DATA_COVPOINT                           100.0%        100 Covered                   
+          covered/total bins:                                 3          3                           
+          missing/total bins:                                 0          3                           
+          bin data_min                                      999          1 Covered                   
+          bin data_rang                                    2948          1 Covered                   
+          bin data_max                                     1001          1 Covered                   
+      Cross CROSS_ADDR_DATA                              100.0%        100 Covered                   
+          covered/total bins:                                48         48                           
+          missing/total bins:                                 0         48                           
+          bin <data_min,addr['b0000]>                        62          1 Covered                   
+          bin <data_min,addr['b0001]>                        61          1 Covered                   
+          bin <data_min,addr['b0010]>                        64          1 Covered                   
+          bin <data_min,addr['b0011]>                        50          1 Covered                   
+          bin <data_min,addr['b0100]>                        46          1 Covered                   
+          bin <data_min,addr['b0101]>                       114          1 Covered                   
+          bin <data_min,addr['b0110]>                        57          1 Covered                   
+          bin <data_min,addr['b0111]>                        64          1 Covered                   
+          bin <data_min,addr['b1000]>                        52          1 Covered                   
+          bin <data_min,addr['b1001]>                        61          1 Covered                   
+          bin <data_min,addr['b1010]>                        72          1 Covered                   
+          bin <data_min,addr['b1011]>                        79          1 Covered                   
+          bin <data_min,addr['b1100]>                        55          1 Covered                   
+          bin <data_min,addr['b1101]>                        55          1 Covered                   
+          bin <data_min,addr['b1110]>                        47          1 Covered                   
+          bin <data_min,addr['b1111]>                        60          1 Covered                   
+          bin <data_rang,addr['b0000]>                      172          1 Covered                   
+          bin <data_rang,addr['b0001]>                      175          1 Covered                   
+          bin <data_rang,addr['b0010]>                      138          1 Covered                   
+          bin <data_rang,addr['b0011]>                      196          1 Covered                   
+          bin <data_rang,addr['b0100]>                      193          1 Covered                   
+          bin <data_rang,addr['b0101]>                      323          1 Covered                   
+          bin <data_rang,addr['b0110]>                      142          1 Covered                   
+          bin <data_rang,addr['b0111]>                      187          1 Covered                   
+          bin <data_rang,addr['b1000]>                      161          1 Covered                   
+          bin <data_rang,addr['b1001]>                      197          1 Covered                   
+          bin <data_rang,addr['b1010]>                      200          1 Covered                   
+          bin <data_rang,addr['b1011]>                      212          1 Covered                   
+          bin <data_rang,addr['b1100]>                      154          1 Covered                   
+          bin <data_rang,addr['b1101]>                      163          1 Covered                   
+          bin <data_rang,addr['b1110]>                      171          1 Covered                   
+          bin <data_rang,addr['b1111]>                      164          1 Covered                   
+          bin <data_max,addr['b0000]>                        59          1 Covered                   
+          bin <data_max,addr['b0001]>                        54          1 Covered                   
+          bin <data_max,addr['b0010]>                        59          1 Covered                   
+          bin <data_max,addr['b0011]>                        62          1 Covered                   
+          bin <data_max,addr['b0100]>                        58          1 Covered                   
+          bin <data_max,addr['b0101]>                       106          1 Covered                   
+          bin <data_max,addr['b0110]>                        40          1 Covered                   
+          bin <data_max,addr['b0111]>                        66          1 Covered                   
+          bin <data_max,addr['b1000]>                        68          1 Covered                   
+          bin <data_max,addr['b1001]>                        53          1 Covered                   
+          bin <data_max,addr['b1010]>                        77          1 Covered                   
+          bin <data_max,addr['b1011]>                        67          1 Covered                   
+          bin <data_max,addr['b1100]>                        58          1 Covered                   
+          bin <data_max,addr['b1101]>                        56          1 Covered                   
+          bin <data_max,addr['b1110]>                        64          1 Covered                   
+          bin <data_max,addr['b1111]>                        54          1 Covered                   
+  
+TOTAL COVERGROUP COVERAGE: 100.0%  COVERGROUP TYPES: 1
+
+
+ASSERTION RESULTS:
+-------------------------------------------------------
+Name                 File(Line)           Failure Pass 
+                                          Count   Count 
+-------------------------------------------------------
+/memory_top_wrap/dut/memory_assertions_inst/reset_vld_out_ass
+                     C:/ver_course/memory/tb_uvm/assertions//../assertions/memory_assertions.sv(17)       0     3
+/memory_top_wrap/dut/memory_assertions_inst/reset_data_out_ass
+                     C:/ver_course/memory/tb_uvm/assertions//../assertions/memory_assertions.sv(19)       0     3
+/memory_top_wrap/dut/memory_assertions_inst/bypass_vld_out_ass
+                     C:/ver_course/memory/tb_uvm/assertions//../assertions/memory_assertions.sv(21)       0    23
+/memory_top_wrap/dut/memory_assertions_inst/bypass_data_out_ass
+                     C:/ver_course/memory/tb_uvm/assertions//../assertions/memory_assertions.sv(23)       0    23
+/memory_top_wrap/dut/memory_assertions_inst/write_vld_out_ass
+                     C:/ver_course/memory/tb_uvm/assertions//../assertions/memory_assertions.sv(25)       0  4100
+/memory_top_wrap/dut/memory_assertions_inst/write_data_out_ass
+                     C:/ver_course/memory/tb_uvm/assertions//../assertions/memory_assertions.sv(27)       0  4100
+/memory_top_wrap/dut/memory_assertions_inst/read_vld_out_ass
+                     C:/ver_course/memory/tb_uvm/assertions//../assertions/memory_assertions.sv(29)       0   820
+/uvm_pkg/uvm_callbacks/uvm_callbacks__1/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__2/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__3/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__4/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__5/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__6/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__7/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__8/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__9/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__10/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__11/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__12/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__13/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__14/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__15/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__16/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__17/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__18/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__19/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_phase/add/immed__1302
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_phases.svh(1302)       0    23
+/uvm_pkg/uvm_phase/get_domain/immed__1481
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_phases.svh(1481)       0  2102
+/uvm_pkg/uvm_component/new/#ublk#34#1719/immed__1723
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_component.svh(1723)       0    27
+/memory_top_pkg/memory_scb/write/rst_check_ass
+                     C:/ver_course/memory/tb_uvm/assertions//../scoreboard/memory_scb.svh(22)       0     3
+/memory_top_pkg/memory_scb/write/read_check_ass
+                     C:/ver_course/memory/tb_uvm/assertions//../scoreboard/memory_scb.svh(30)       0   820
+/memory_top_pkg/reset_seq/body/immed__12
+                     C:/ver_course/memory/tb_uvm/assertions//../seq/seq_lib.svh(12)       0     1
+/memory_top_pkg/write_seq/body/immed__27
+                     C:/ver_course/memory/tb_uvm/assertions//../seq/seq_lib.svh(27)       0  4100
+/memory_top_pkg/read_seq/body/immed__42
+                     C:/ver_course/memory/tb_uvm/assertions//../seq/seq_lib.svh(42)       0   820
+/memory_top_pkg/bypass_seq/body/immed__57
+                     C:/ver_course/memory/tb_uvm/assertions//../seq/seq_lib.svh(57)       0    20
+
+

@@ -1,0 +1,78 @@
+
+ASSERTION RESULTS:
+-------------------------------------------------------
+Name                 File(Line)           Failure Pass 
+                                          Count   Count 
+-------------------------------------------------------
+/memory_top_wrap/dut/memory_assertions_inst/reset_vld_out_ass
+                     C:/ver_course/memory/tb_uvm/assertions//../assertions/memory_assertions.sv(17)       0     3
+/memory_top_wrap/dut/memory_assertions_inst/reset_data_out_ass
+                     C:/ver_course/memory/tb_uvm/assertions//../assertions/memory_assertions.sv(19)       0     3
+/memory_top_wrap/dut/memory_assertions_inst/bypass_vld_out_ass
+                     C:/ver_course/memory/tb_uvm/assertions//../assertions/memory_assertions.sv(21)       0    23
+/memory_top_wrap/dut/memory_assertions_inst/bypass_data_out_ass
+                     C:/ver_course/memory/tb_uvm/assertions//../assertions/memory_assertions.sv(23)       0    23
+/memory_top_wrap/dut/memory_assertions_inst/write_vld_out_ass
+                     C:/ver_course/memory/tb_uvm/assertions//../assertions/memory_assertions.sv(25)       0  4100
+/memory_top_wrap/dut/memory_assertions_inst/write_data_out_ass
+                     C:/ver_course/memory/tb_uvm/assertions//../assertions/memory_assertions.sv(27)       0  4100
+/memory_top_wrap/dut/memory_assertions_inst/read_vld_out_ass
+                     C:/ver_course/memory/tb_uvm/assertions//../assertions/memory_assertions.sv(29)       0   820
+/uvm_pkg/uvm_callbacks/uvm_callbacks__1/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__2/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__3/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__4/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__5/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__6/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__7/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__8/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__9/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__10/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__11/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__12/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__13/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__14/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__15/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__16/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__17/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__18/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_callbacks/uvm_callbacks__19/initialize/immed__503
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_callback.svh(503)       0     1
+/uvm_pkg/uvm_phase/add/immed__1302
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_phases.svh(1302)       0    23
+/uvm_pkg/uvm_phase/get_domain/immed__1481
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_phases.svh(1481)       0  2102
+/uvm_pkg/uvm_component/new/#ublk#34#1719/immed__1723
+                     C:/questasim_10.0b/win32/../verilog_src/uvm-1.0p1/src/base/uvm_component.svh(1723)       0    27
+/memory_top_pkg/memory_scb/write/rst_check_ass
+                     C:/ver_course/memory/tb_uvm/assertions//../scoreboard/memory_scb.svh(22)       0     3
+/memory_top_pkg/memory_scb/write/read_check_ass
+                     C:/ver_course/memory/tb_uvm/assertions//../scoreboard/memory_scb.svh(30)       0   820
+/memory_top_pkg/reset_seq/body/immed__12
+                     C:/ver_course/memory/tb_uvm/assertions//../seq/seq_lib.svh(12)       0     1
+/memory_top_pkg/write_seq/body/immed__27
+                     C:/ver_course/memory/tb_uvm/assertions//../seq/seq_lib.svh(27)       0  4100
+/memory_top_pkg/read_seq/body/immed__42
+                     C:/ver_course/memory/tb_uvm/assertions//../seq/seq_lib.svh(42)       0   820
+/memory_top_pkg/bypass_seq/body/immed__57
+                     C:/ver_course/memory/tb_uvm/assertions//../seq/seq_lib.svh(57)       0    20
+
+
